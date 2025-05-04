@@ -1,9 +1,11 @@
 from src.json_file_class import JsonVacancyStorage
 import requests
 from src.vacancy_class import Vacancy
+from typing import List, Dict, Any
 
 
-def search_vacancies(query):
+def search_vacancies(query: str) -> List[Dict[str, Any]]:
+    """ Ищет вакансии по заданному запросу на сайте hh.ru. """
     url = "https://api.hh.ru/vacancies"
     params = {
         "text": query,
@@ -20,7 +22,8 @@ def search_vacancies(query):
         return []
 
 
-def user_interaction(storage: JsonVacancyStorage):
+def user_interaction(storage: JsonVacancyStorage) -> None:
+    """ Обрабатывает взаимодействие с пользователем для управления вакансиями. """
     while True:
         print("\nДобро пожаловать в систему управления вакансиями!")
         print("Выберите действие:")
