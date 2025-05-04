@@ -1,9 +1,10 @@
 from src.abstract_api import AbstractJobAPI
 import requests
-from typing import List, Dict
+
 
 
 class HHAPI(AbstractJobAPI):
+    """ Класс для взаимодействия с API hh.ru для получения вакансий. """
     def __init__(self):
         self.__base_url = "https://api.hh.ru/vacancies"
         self.__headers = {
